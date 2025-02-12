@@ -25,19 +25,19 @@ It requires Node.js installed.
 
 ### Step by step
 
-1. Go to [AWS Model Access](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess) and **request access to the models you want to use**. Each model has its own EULA (_End-user license agreement_), and the first access request you make will ask you "_what do you want to use this models for?_".
+1) Go to [AWS Model Access](https://us-east-1.console.aws.amazon.com/bedrock/home?region=us-east-1#/modelaccess) and **request access to the models you want to use**. Each model has its own EULA (_End-user license agreement_), and the first access request you make will ask you "_what do you want to use this models for?_".
 
  **Select and use the _Bedrock serverless_ models.** _Marketplace models_ (_Provisioned Throughput_) means you'll deploy those models and that's really, really expensive (we're talking thousands of dollars _per day_). Serverless (on-demand) is **priced by the token**, some models even include caching in and out responses, and all of them are [priced](https://aws.amazon.com/bedrock/pricing/) by _tokens in and out_. They offer [Pricing examples](https://aws.amazon.com/bedrock/pricing/#Pricing_examples) so you can learn to calculate costs.
 
-1. **Get Bedrock permissions.** I'm using a new user (_IAM_) specific for this testing usage, and it is in a group named "_bedrock_test_" with this Policies: `AmazonBedrockFullAccess` and `IAMFullAccess`.
+2) **Get Bedrock permissions.** I'm using a new user (_IAM_) specific for this testing usage, and it is in a group named "_bedrock_test_" with this Policies: `AmazonBedrockFullAccess` and `IAMFullAccess`.
 
   `IAMFullAccess` allows you to **create and manage [Access keys](https://docs.aws.amazon.com/console/iam/self-accesskeys)**, which you'll need to get `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` variables.
 
-1. **Clone this repo** on your machine and run `npm install` in it.
+3) **Clone this repo** on your machine and run `npm install` in it.
 
-1. Copy and rename the sample `.env` file so it becomes the main `.env` (`$ cp ./src/.env.sample ./src/.env`) and complete the variables with the info from step 2 (_Access keys_).
+4) Copy and rename the sample `.env` file so it becomes the main `.env` (`$ cp ./src/.env.sample ./src/.env`) and complete the variables with the info from step 2 (_Access keys_).
 
-1. Check and run the examples inside using Node.
+5) Check and run the examples inside using Node.
 
   **First list the available models** using `$ node ./src/1-hello-bedrock.js`
 
@@ -125,4 +125,4 @@ It requires Node.js installed.
 
   Now try doing the same thing with the other examples (_Llama 3_ and _Nova Lite_).
 
-1. **Try using different user prompts and system prompts.** In this case I'm using a couple functions to remove emojis. spaces, and new lines from prompts before sending them to Bedrock so we can save input tokens cost.
+6) **Try using different user prompts and system prompts.** In this case I'm using a couple functions to remove emojis. spaces, and new lines from prompts before sending them to Bedrock so we can save input tokens cost.
